@@ -1,4 +1,5 @@
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -15,13 +16,9 @@ import java.util.logging.Logger;
  * @author ariannascheidell
  */
 public class Writer {
-    public static void write(String filename, String fileString, boolean encrypted) {
+    public static void write(String filename, String fileString) {
         try {
             String file = "Output/" + filename;
-            if (encrypted) {
-                file += "encrypted";
-            }
-            file += ".txt";
             
             PrintWriter pw = new PrintWriter(file);
             pw.write(fileString);
