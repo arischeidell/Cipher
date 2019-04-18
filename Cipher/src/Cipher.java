@@ -39,7 +39,7 @@ public class Cipher {
             System.out.println("Encrypting " + f.getName() + ": " + text);
             
             if (i < keys.length) {
-                int key = Integer.parseInt(Reader.read(keys[0]));
+                int key = Integer.parseInt(Reader.read(keys[i]));
                 System.out.println("Key: " + key);
                 Encipher e = new Encipher(text, key);
                 String encrypted = e.encrypt();
@@ -64,7 +64,7 @@ public class Cipher {
             System.out.println("Decrypting " + f.getName() + ": " + text);
             
             if (i < keys.length) {
-                int key = Integer.parseInt(Reader.read(keys[0]));
+                int key = Integer.parseInt(Reader.read(keys[i]));
                 System.out.println("Key: " + key);
                 Decipher d = new Decipher(text, key);
                 String decrypted = d.decrypt();

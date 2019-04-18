@@ -49,6 +49,7 @@ public class App {
         File keyDir = new File("Keys/");
         Cipher c = new Cipher(inputDir, outputDir, keyDir);
         c.encrypt();
+        System.out.println("\n");
         c.decrypt();
     }
     
