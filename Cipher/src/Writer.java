@@ -15,9 +15,15 @@ import java.util.logging.Logger;
  * @author ariannascheidell
  */
 public class Writer {
-    public static void write(String filename, String fileString) {
+    public static void write(String filename, String fileString, boolean encrypted) {
         try {
-            PrintWriter pw = new PrintWriter(filename);
+            String file = "Output/" + filename;
+            if (encrypted) {
+                file += "encrypted";
+            }
+            file += ".txt";
+            
+            PrintWriter pw = new PrintWriter(file);
             pw.write(fileString);
             pw.flush();
             pw.close();

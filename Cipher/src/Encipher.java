@@ -15,25 +15,18 @@ public class Encipher {
     private ArrayList<Character> alpha;
     private String raw;
     private int key;
-    private final ArrayList<Character> punct;
     
     public Encipher(String raw, int key) {
         alpha = new ArrayList();
-        punct = new ArrayList();
         setup();
         this.raw = raw;
         this.key = key;
     }
     
     private void setup() {
-        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-_=+{}[]|:;\"'?/\\~,.<> ";
         for (int i = 0; i < alphabet.length(); i++) {
             alpha.add(alphabet.charAt(i));
-        }
-        
-        String punctuation = "!@#$%^&*()-_=+{}[]|:;\"'?/\\~,.<> ";
-        for (int i = 0; i < punctuation.length(); i++) {
-            punct.add(punctuation.charAt(i));
         }
     }
     
@@ -41,11 +34,7 @@ public class Encipher {
         String encrypted = "";
         for (int i = 0; i < raw.length(); i++) {
             Character c = raw.charAt(i);
-            if (punct.contains(c)) {
-                encrypted += c;
-            } else {
-                encrypted += transform(c);
-            }
+            encrypted += transform(c);
         }
         return encrypted;
     }
